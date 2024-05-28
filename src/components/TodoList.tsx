@@ -8,13 +8,13 @@ import { Todo } from "./Todo"
 //  todo : string
 // }
 
-export const TodoList = ( {todoList} : { todoList: typeTodo[]} ) => {
+export const TodoList = ( {todoList, handleCompleted} : { todoList: typeTodo[], handleCompleted : (todoid : string) => void} ) => {
   return (
    <div>
    {
     todoList.map((item ) =>(
-      <div style={ {display : 'flex'}} key={item.id}>
-      <Todo  text = {item.todo}  isCompleted = {item.isCompleted} />
+      <div  key={item.id}>
+      <Todo todoid ={item.id}  handleCompleted = {handleCompleted} text = {item.todo}  isCompleted = {item.isCompleted} />
       </div>
     ))
   }
